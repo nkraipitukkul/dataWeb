@@ -109,3 +109,8 @@ body {
 .btn:hover {
   opacity: 0.9;
 }
+
+.heading {
+  background-color: #de5499;
+  border-radius: 0 20px 20px 0;
+}
