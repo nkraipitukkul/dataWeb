@@ -20,7 +20,7 @@ body {
 
 .logo {
   width: auto;
-  width: auto;
+  height: auto;
 }
 
 .tab {
@@ -40,6 +40,9 @@ body {
 .nav {
   text-decoration: none;
   color: black;
+  width: 100%;
+  height: auto;
+  border: 0;
 }
 
 .container {
