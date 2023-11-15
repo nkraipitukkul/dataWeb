@@ -114,3 +114,10 @@ body {
   background-color: #de5499;
   border-radius: 0 20px 20px 0;
 }
+
+.api_data{
+  width:400px;
+  height: auto;
+  margin-left: 570px;
+  margin-top:-200px;
+}
