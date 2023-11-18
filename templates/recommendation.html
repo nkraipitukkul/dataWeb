@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Recommendation</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <table class="table_area">
+        <tr>
+          <th>
+            <img src="" alt="Logo" class="logo" />
+          </th>
+
+          <th class="tab_last">
+            <a href="ref.html" class="nav">Ref.</a>
+          </th>
+        </tr>
+      </table>
+
+      <h1>Anime Recommendation</h1>
+      {% for key, value in data['Received Name'].items() %}
+      <div class="anime-group">
+        <h2>Anime: {{ value }}</h2>
+
+        <h3>Similarity:</h3>
+        <ul>
+          <li>{{ key }}: {{ data['Received Similarity'][key] }}</li>
+        </ul>
+
+        <h3>Genres:</h3>
+        <ul>
+          <li>{{ key }}: {{ data['Received Genres'][key] }}</li>
+        </ul>
+
+        <h3>Synopsis:</h3>
+        <p>{{ key }}: {{ data['Received Synopsis'][key] }}</p>
+
+        <h3>Image:</h3>
+        <img
+          src="{{ data['Received Image'][key] }}"
+          alt="Image for {{ value }}"
+        />
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

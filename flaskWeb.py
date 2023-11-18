@@ -1,26 +1,38 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request
 import requests
 import json
 
 app = Flask(__name__)
 
-def get_api():
-    url = "https://meme.breakingbranches.tech/api?limit=15&type=dank"
-    response = json.loads(requests.get(url).text)
-    title = [meme["title"] for meme in response["memes"]]
-    url = [meme["url"] for meme in response["memes"]]
-    return title, url
-
-def get_years():
-    years = ['2020', '2021', '2022', '2023']
-    return years
-
 @app.route("/")
 @app.route("/index")
 def index():
-    years = get_years()
-    title, url = get_api()
-    return render_template("index.html", years=years, title=title, url=url)
+    return render_template("index.html")
+
+@app.route("/temp-plot")
+def temp_plot():
+    return render_template("temp-plot.html")
+
+@app.route("/recommendation", methods=["POST", "GET"])
+def recommendation():
+    if request.method == "POST":
+        anime_name = request.form["anime_name"]
+        return redirect(url_for("anime", anime_name=anime_name))
+    else:
+        return render_template("index.html")
+
+@app.route("/anime/<anime_name>")
+def anime(anime_name):
+    api_url = "http://54.164.159.198/anime_recommendation"
+    data = {"anime_name": anime_name}
+    
+    response = requests.post(api_url, json=data)
+    status = response.json()["status"]
+    if status == "ok":
+        recommendation_data = response.json()["message"]
+        return render_template("recommendation.html", data=recommendation_data)
+    else:
+        return render_template("error.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80)

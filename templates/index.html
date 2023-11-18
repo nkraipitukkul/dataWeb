@@ -10,20 +10,12 @@
       href="{{ url_for('static', filename='css/style.css') }}"
     />
   </head>
-
   <body>
     <div class="wrapper">
       <table class="table_area">
         <tr>
           <th>
             <img src="" alt="Logo" class="logo" />
-          </th>
-          <th class="tab">
-            <select class="">
-              {% for title in title: %}
-              <option value="{{title}}">{{ title }}</option>
-              {% endfor %}
-            </select>
           </th>
           <th class="tab_last">
             <a href="ref.html" class="nav">Ref.</a>
@@ -33,18 +25,19 @@
 
       <div class="container">
         <div class="form_area">
-          <form action="">
+          <form action="{{ url_for('recommendation') }}" method="post">
             <div class="form_group">
               <p class="title">Recommend</p>
-              <input placeholder="Search..." class="form_style" type="text" />
+              <input
+                placeholder="Search..."
+                class="form_style"
+                type="text"
+                name="anime_name"
+              />
             </div>
             <div>
-              <button class="btn">Search</button>
+              <input type="submit" class="btn" />
             </div>
-            <!-- {{title}} {% for url in url: %}
-            <br />
-            <img src="{{url}}" alt="{{title}}" style="width: 300px" />
-            {% endfor %} -->
           </form>
         </div>
       </div>
