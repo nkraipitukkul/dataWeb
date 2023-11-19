@@ -31,34 +31,41 @@ def anime(anime_name):
     else:
         return render_template("error.html")
 
-@app.route("/overall")
-def overall():
-    return render_template("overall.html")
+# @app.route("/2020")
+# def page2020():
+#     return render_template("page2020.html")
 
-@app.route("/2020")
-def page2020():
-    return render_template("page2020.html")
+# @app.route("/2021")
+# def page2021():
+#     return render_template("page2021.html")
 
-@app.route("/2021")
-def page2021():
-    return render_template("page2021.html")
+# @app.route("/2022")
+# def page2022():
+#     return render_template("page2022.html")
 
-@app.route("/2022")
-def page2022():
-    return render_template("page2022.html")
-
-@app.route("/2023")
-def page2023():
-    return render_template("page2023.html")
+# @app.route("/2023")
+# def page2023():
+#     return render_template("page2023.html")
 
 @app.route("/ref")
 def ref():
     return render_template("ref.html")
 
-@app.route("/temp-plot")
-def temp_plot():
-    return render_template("temp-plot.html")
+@app.route("/temp-map-2018")
+def temp_map_2018():
+    return render_template("temp_map_2018.html")
 
+@app.route("/top-studio-2018")
+def top_studio_2018():
+    return render_template("top_studio_2018.html")
+
+@app.route("/user-nature-2018")
+def user_nature_2018():
+    return render_template("user_nature_2018.html")
+
+@app.route("/top-rated-2018")
+def top_rated_2018():
+    return render_template("top_rated_anime_2018.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80)
