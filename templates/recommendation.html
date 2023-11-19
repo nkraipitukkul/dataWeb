@@ -19,28 +19,59 @@
           </th>
 
           <th class="tab">
-            <a href="/" class="nav">Overall</a>
+            <div class="dropdown">
+              <div class="nav">2023</div>
+              <div class="dropdown-content"></div>
+            </div>
           </th>
           <th class="tab">
-            <a href="/" class="nav">2023</a>
+            <div class="dropdown">
+              <div class="nav">2022</div>
+              <div class="dropdown-content"></div>
+            </div>
           </th>
           <th class="tab">
-            <a href="/" class="nav">2022</a>
+            <div class="dropdown">
+              <div class="nav">2021</div>
+              <div class="dropdown-content"></div>
+            </div>
           </th>
+
           <th class="tab">
-            <a href="/" class="nav">2021</a>
+            <div class="dropdown">
+              <div class="nav">2022</div>
+              <div class="dropdown-content"></div>
+            </div>
           </th>
+
           <th class="tab">
-            <a href="/" class="nav">2020</a>
+            <div class="dropdown">
+              <div class="nav">2021</div>
+              <div class="dropdown-content"></div>
+            </div>
           </th>
+
+          <th class="tab">
+            <div class="dropdown">
+              <div class="nav">2020</div>
+              <div class="dropdown-content"></div>
+            </div>
+          </th>
+
           <th class="tab">
             <div class="dropdown">
               <div class="nav">2018</div>
               <div class="dropdown-content">
-                <a href="/top-rated-2018" class="tab dropped">Top Rated Anime</a>
-                <a href="/top-studio-2018" class="tab dropped">Top Anime Studios</a>
+                <a href="/top-rated-2018" class="tab dropped"
+                  >Top Rated Anime</a
+                >
+                <a href="/top-studio-2018" class="tab dropped"
+                  >Top Anime Studios</a
+                >
                 <a href="/temp-map-2018" class="tab dropped">Anime Watchers</a>
-                <a href="/user-nature-2018" class="tab dropped">Watcher Age & Gender</a>
+                <a href="/user-nature-2018" class="tab dropped"
+                  >Watcher Age & Gender</a
+                >
               </div>
             </div>
           </th>
@@ -52,27 +83,29 @@
 
       <h1>Anime Recommendation</h1>
       {% for key, value in data['Received Name'].items() %}
-      <div class="anime-group">
-        <h2>Anime: {{ value }}</h2>
+      <div class="container">
+        <div class="form_area">
+          <h2>Anime: {{ value }}</h2>
 
-        <h3>Similarity:</h3>
-        <ul>
-          <li>{{ key }}: {{ data['Received Similarity'][key] }}</li>
-        </ul>
+          <h3>Similarity:</h3>
+          <ul>
+            <li>{{ key }}: {{ data['Received Similarity'][key] }}</li>
+          </ul>
 
-        <h3>Genres:</h3>
-        <ul>
-          <li>{{ key }}: {{ data['Received Genres'][key] }}</li>
-        </ul>
+          <h3>Genres:</h3>
+          <ul>
+            <li>{{ key }}: {{ data['Received Genres'][key] }}</li>
+          </ul>
 
-        <h3>Image:</h3>
-        <img
-          src="{{ data['Received Image'][key] }}"
-          alt="Image for {{ value }}"
-        />
+          <h3>Image:</h3>
+          <img
+            src="{{ data['Received Image'][key] }}"
+            alt="Image for {{ value }}"
+          />
 
-        <h3>Synopsis:</h3>
-        <p>{{ key }}: {{ data['Received Synopsis'][key] }}</p>
+          <h3>Synopsis:</h3>
+          <p>{{ key }}: {{ data['Received Synopsis'][key] }}</p>
+        </div>
       </div>
       {% endfor %}
     </div>
