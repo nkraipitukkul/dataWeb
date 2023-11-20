@@ -31,6 +31,10 @@ def anime(anime_name):
     else:
         return render_template("error.html")
 
+@app.route("/2018")
+def page2018():
+    return render_template("page2018.html")
+
 @app.route("/ref")
 def ref():
     return render_template("ref.html")

@@ -127,7 +127,8 @@ body {
 /*------------------------------------ for dropdowns -----------------------------------*/
 
 .dropdown {
-  align-content: center;
+  position: relative;
+  display: inline-block;
 }
 
 .dropped {
