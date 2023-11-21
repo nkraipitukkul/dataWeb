@@ -20,7 +20,7 @@ def recommendation():
 
 @app.route("/recommend/<anime_name>")
 def anime(anime_name):
-    api_url = "http://54.164.159.198/anime_recommendation"
+    api_url = "http://54.89.178.240/anime_recommendation"
     data = {"anime_name": anime_name}
     
     response = requests.post(api_url, json=data)
@@ -31,25 +31,13 @@ def anime(anime_name):
     else:
         return render_template("error.html")
 
-@app.route("/ref")
-def ref():
-    return render_template("ref.html")
+@app.route("/2018")
+def page2018():
+    return render_template("page2018.html")
 
-@app.route("/temp-map-2018")
-def temp_map_2018():
-    return render_template("temp_map_2018.html")
-
-@app.route("/top-studio-2018")
-def top_studio_2018():
-    return render_template("top_studio_2018.html")
-
-@app.route("/user-nature-2018")
-def user_nature_2018():
-    return render_template("user_nature_2018.html")
-
-@app.route("/top-rated-2018")
-def top_rated_2018():
-    return render_template("top_rated_anime_2018.html")
+@app.route("/2023")
+def page2023():
+    return render_template("page2023.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80)
