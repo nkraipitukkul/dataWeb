@@ -20,7 +20,7 @@ def recommendation():
 
 @app.route("/recommend/<anime_name>")
 def anime(anime_name):
-    api_url = "http://54.90.51.197/anime_recommendation"
+    api_url = "http://54.89.178.240/anime_recommendation"
     data = {"anime_name": anime_name}
     
     response = requests.post(api_url, json=data)
